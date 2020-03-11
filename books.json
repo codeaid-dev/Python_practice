@@ -1,0 +1,22 @@
+{
+  "book1":{
+    "title":"Python 初心者",
+    "年": 2005 ,
+    "page": 399
+  },
+  "book2":{
+    "title": "Python Developers",
+    "年": 2006 ,
+    "page": 650
+  },
+  "book3":{
+    "title":"Python cookbook",
+    "年": 2002 ,
+    "page": 344
+  },
+  "book4":{
+    "title": "Python Dictionary",
+    "年": 2012 ,
+    "page": 1024
+  }
+}
