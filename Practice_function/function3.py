@@ -1,11 +1,11 @@
-def intro(name, *arguments, **keywords):
+def intro(name, *args, **kwargs):
     print("あなたは", name, "さんを知っていますか？")
     print(name, "さんは、メジャーで大活躍している選手です。")
-    for arg in arguments:
+    for arg in args:
         print(arg)
     print("-" * 40)
-    for kw in keywords:
-        print(kw, ":", keywords[kw])
+    for kw in kwargs:
+        print(kw, ":", kwargs[kw])
 
 intro("大谷",
     "彼はピッチャーもバッターもできます。",
