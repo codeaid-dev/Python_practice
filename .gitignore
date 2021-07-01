@@ -4,3 +4,4 @@ check.py
 test.py
 /exercise.ipynb
 *.txt
+__pycache__
