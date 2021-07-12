@@ -1,8 +1,6 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
 import json
 
-dict = {"hello": "日本語"}
+dict = {"japanese": "日本語", "english": "英語"}
 text = json.dumps(dict, sort_keys=True, ensure_ascii=False, indent=2)
-with open("utf8.json", "w") as fh:
-    fh.write(text.encode("utf-8"))
+with open("test.json", "w") as fh:
+    fh.write()
