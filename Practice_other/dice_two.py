@@ -6,17 +6,19 @@ dice1 = Dice()
 dice2 = Dice()
 
 # output the result of rolling the dice.
-results = []
-for num in range(1000):
-    result = dice1.roll() + dice2.roll()
-    results.append(result)
+#results = []
+#for num in range(1000):
+#    result = dice1.roll() + dice2.roll()
+#    results.append(result)
+results = [dice1.roll()+dice2.roll() for num in range(1000)]
 
 # count the number of results
-counts = []
+#counts = []
 max_num = dice1.sides + dice2.sides
-for val in range(2, max_num+1):
-    cnt = results.count(val)
-    counts.append(cnt)
+#for val in range(2, max_num+1):
+#    cnt = results.count(val)
+#    counts.append(cnt)
+counts = [results.count(val) for val in range(2, max_num+1)]
 
 # visualize the result
 x_vals = list(range(2, max_num+1))
