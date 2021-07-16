@@ -10,8 +10,9 @@ results = [dice.roll() for num in range(1000)]
 y_vals = [results.count(val) for val in range(1, dice.sides+1)]
 x_vals = list(range(1, dice.sides+1))
 
-fig = plt.figure()
-ax = fig.add_subplot(111) #1行1列目1番目
+fig, ax = plt.subplots()
+#fig = plt.figure()
+#ax = fig.add_subplot(111) #1行1列目1番目
 ax.bar(x_vals, y_vals, width=0.8, tick_label=x_vals)
 
 plt.xlabel('Result')

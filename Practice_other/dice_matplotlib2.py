@@ -12,13 +12,12 @@ max_num = dice1.sides + dice2.sides
 y_vals = [results.count(val) for val in range(2, max_num+1)]
 x_vals = list(range(2, max_num+1))
 
-fig = plt.figure()
-ax = fig.add_subplot(111) #1行1列目1番目
-#ax.bar(x_vals, y_vals, width=0.8, tick_label=x_vals)
+fig, ax = plt.subplots()
+ax.bar(x_vals, y_vals, width=0.8, tick_label=x_vals)
 
 plt.xlabel('Result')
 plt.ylabel('Frequency')
 plt.title('The result of 1000 rotations of two 6-sided dices')
-plt.hist(results, bins=dice1.sides+dice2.sides-1, histtype="bar", edgecolor="black", rwidth=0.8)
+#plt.hist(results, bins=dice1.sides+dice2.sides-1, histtype="bar", edgecolor="black", rwidth=0.8)
 
 plt.show()
