@@ -8,3 +8,5 @@ __pycache__
 test.json
 sample.json
 *.html
+test.csv
+sample.csv
