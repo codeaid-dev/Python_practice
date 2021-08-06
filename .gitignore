@@ -11,3 +11,5 @@ sample.json
 *.html
 test.csv
 sample.csv
+*.jpg
+*.png
