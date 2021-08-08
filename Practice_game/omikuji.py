@@ -21,19 +21,19 @@ def click_btn():
     else:
         num = 6
 
-    canvas.create_image(200,350,image=omikuji[num],tags='omikuji')
+    canvas.create_image(150,330,image=omikuji[num],tags='omikuji')
 
 root = tkinter.Tk()
 root.title('おみくじ')
 root.resizable(False, False)
-canvas = tkinter.Canvas(root, width=400, height=800)
+canvas = tkinter.Canvas(root, width=300, height=660)
 canvas.pack()
 box = tkinter.PhotoImage(file='omikuji.png')
 
 for i in range(1,8):
     omikuji.append(tkinter.PhotoImage(file=f'omikuji_fuda{i}.png'))
 
-canvas.create_image(200,350,image=box,tags='omikuji')
+canvas.create_image(150,330,image=box,tags='omikuji')
 button = tkinter.Button(root, text='おみくじを引く', command=click_btn, font=('メイリオ', 36))
 button.pack(side=tkinter.BOTTOM, pady=50)
 root.mainloop()
