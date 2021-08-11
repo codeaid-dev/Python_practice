@@ -37,20 +37,11 @@ def set_tresure():
         if maze[tresurey][tresurex] == 0:
             break
 
-#キーイベント取得
-key = ''
-def key_down(e):
-    global key
-    key = e.keysym
-def key_up(e):
-    global key
-    key = ''
-
-#押されたキーを判定しキャラクターを動かす。200msごとに関数を実行する
-blockx,count = 0,0
+#キーイベント取得(押されたキーを判定しキャラクターを動かす)
 posx,posy = 1,1
-def control():
-    global posx,posy,count,blockx
+def key_down(e):
+    global posx,posy
+    key = e.keysym
     if key == 'Up' and maze[posy-1][posx] == 0:
         posy = posy - 1
     if key == 'Down' and maze[posy+1][posx] == 0:
@@ -61,8 +52,16 @@ def control():
         posx = posx + 1
     canvas.delete('PLAYER')
     canvas.create_image(posx*50+25, posy*50+25, image=img, tag='PLAYER')
-    count += 1
-    if count%10 == 0 and maze[0][blockx] == 1:
+    if posy == tresurey and posx == tresurex:
+        canvas.create_image(posx*50+25, posy*50+25, image=tresure_img, tag='TAKARA')
+        canvas.update()
+        tkinter.messagebox.showinfo('おめでとう','宝を見つけた！')
+
+#2000ms(2秒)ごとに関数を実行(宝を見つけたときと、時間切れをチェックする)
+blockx = 0
+def timer():
+    global blockx
+    if maze[0][blockx] == 1:
         maze[0][blockx] = 2
         canvas.create_rectangle(blockx*50,0, blockx*50+50, 50, fill='red', width=0)
         if blockx < mazew-1:
@@ -70,17 +69,12 @@ def control():
     if maze[0][mazew-1] == 2:
         canvas.update()
         tkinter.messagebox.showinfo('タイマー','時間切れ！')
-    elif posy == tresurey and posx == tresurex:
-        canvas.create_image(posx*50+25, posy*50+25, image=tresure_img, tag='TAKARA')
-        canvas.update()
-        tkinter.messagebox.showinfo('おめでとう','宝を見つけた！')
     else:
-        root.after(200, control)
+        root.after(2000, timer)
 
 root = tkinter.Tk()
 root.title('宝探し')
 root.bind('<KeyPress>', key_down)
-root.bind('<KeyRelease>', key_up)
 canvas = tkinter.Canvas(width=850, height=850, bg='white')
 canvas.pack()
 
@@ -93,5 +87,5 @@ set_tresure()
 tresure_img = tkinter.PhotoImage(file='tresure_50x50.png')
 img = tkinter.PhotoImage(file='inu_50x50.png')
 canvas.create_image(posx*50+25, posy*50+25, image=img, tag='PLAYER')
-control()
+timer()
 root.mainloop()
