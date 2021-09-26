@@ -26,7 +26,6 @@ def slot():
 
 res = 0
 for i in range(3):
-    print(f'{i+1}回目：')
-    input()
+    input(f'{i+1}回目：')
     res += slot()
 print(f'合計：{res}')
