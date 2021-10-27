@@ -2,7 +2,7 @@ import json
 import tkinter
 import random
 
-with open('prefectures.json', 'r') as f:
+with open('prefectures.json', 'r', encoding='utf-8') as f:
     prefs = json.loads(f.read())
 
 correct = None
