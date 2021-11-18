@@ -84,8 +84,8 @@ for y in range(mazeh):
         if maze[y][x] == 1:
             canvas.create_rectangle(x*50,y*50, x*50+50, y*50+50, fill='gray', width=0)
 set_tresure()
-tresure_img = tkinter.PhotoImage(file='tresure_50x50.png')
-img = tkinter.PhotoImage(file='inu_50x50.png')
+tresure_img = tkinter.PhotoImage(file='images/tresure_50x50.png')
+img = tkinter.PhotoImage(file='images/inu_50x50.png')
 canvas.create_image(posx*50+25, posy*50+25, image=img, tag='PLAYER')
 timer()
 root.mainloop()
