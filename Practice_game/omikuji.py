@@ -35,5 +35,5 @@ for i in range(1,8):
 
 canvas.create_image(150,330,image=box,tags='omikuji')
 button = tkinter.Button(root, text='おみくじを引く', command=click_btn, font=('メイリオ', 36))
-button.pack(side=tkinter.BOTTOM, pady=50)
+button.pack(side=tkinter.BOTTOM, padx=50, pady=50)
 root.mainloop()
