@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 
 filename = 'weather.csv'
-with open(filename) as f:
+with open(filename, encoding='utf-8') as f:
     reader = csv.reader(f)
     header_row = next(reader)
 

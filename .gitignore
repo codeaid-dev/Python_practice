@@ -13,3 +13,11 @@ test.csv
 sample.csv
 *.jpg
 *.png
+!app1.html
+!app2_hello.html
+!app2.html
+!app3.html
+!base.html
+!index.html
+!login.html
+!msg.html
