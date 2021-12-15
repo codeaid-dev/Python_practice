@@ -28,10 +28,10 @@ root.title('おみくじ')
 root.resizable(False, False)
 canvas = tkinter.Canvas(root, width=300, height=660)
 canvas.pack()
-box = tkinter.PhotoImage(file='omikuji.png')
+box = tkinter.PhotoImage(file='images/omikuji.png')
 
 for i in range(1,8):
-    omikuji.append(tkinter.PhotoImage(file=f'omikuji_fuda{i}.png'))
+    omikuji.append(tkinter.PhotoImage(file=f'images/omikuji_fuda{i}.png'))
 
 canvas.create_image(150,330,image=box,tags='omikuji')
 button = tkinter.Button(root, text='おみくじを引く', command=click_btn, font=('メイリオ', 36))
