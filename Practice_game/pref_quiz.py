@@ -1,5 +1,6 @@
 import json
 import tkinter
+from PIL import Image, ImageTk
 import random
 
 with open('prefectures.json', 'r', encoding='utf-8') as f:
@@ -27,7 +28,8 @@ canvas = tkinter.Canvas(root, width=500, height=500)
 canvas.pack()
 
 for d in prefs:
-    d['img'] = tkinter.PhotoImage(file=d['file'])
+    d['img'] = ImageTk.PhotoImage(Image.open(d['file']))
+    #d['img'] = tkinter.PhotoImage(file=d['file'])
 
 tsugi = tkinter.Button(root, text='次の問題', font=('メイリオ', 36), command=questions)
 tsugi.pack(side=tkinter.BOTTOM, pady=20)
