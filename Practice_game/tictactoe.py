@@ -1,5 +1,4 @@
 import tkinter
-#from tkinter.constants import DISABLED
 import tkinter.messagebox
 
 btns = []
@@ -28,7 +27,7 @@ def disable_btns():
     global btns
     for btn in btns:
         btn['state'] = 'disable'
-        #btn.config(state=DISABLED)
+        #btn.config(state='disable')
 
 winner = 0 # 0:tie, 1:O, 2:X
 def check_win():
