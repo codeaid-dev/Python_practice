@@ -1,127 +1,127 @@
 import tkinter
 import tkinter.messagebox
 
-btns = []
+labels = []
 #True: O, False: X
 turn = True
 count = 0
-def click_btn(button):
-    if button.widget['state'] == 'disabled':
+def click_label(label):
+    if label.widget['state'] == 'disabled':
         return
 
     global turn, count
-    if button.widget['text'] == '' and turn == True:
-        button.widget['text'] = 'O'
+    if label.widget['text'] == '' and turn == True:
+        label.widget['text'] = 'O'
         turn = False
         count += 1
         check_win()
-    elif button.widget['text'] == '' and turn == False:
-        button.widget['text'] = 'X'
+    elif label.widget['text'] == '' and turn == False:
+        label.widget['text'] = 'X'
         turn = True
         count += 1
         check_win()
     else:
         tkinter.messagebox.showerror('Tic-Tac-Toe', 'すでにクリックされています。\n他のマスを選んでください。')
 
-def disable_btns():
-    global btns
-    for btn in btns:
-        btn['state'] = 'disable'
-        #btn.config(state='disable')
+def disable_labels():
+    global labels
+    for label in labels:
+        label['state'] = 'disable'
+        #label.config(state='disable')
 
 winner = 0 # 0:tie, 1:O, 2:X
 def check_win():
     global winner
-    if btns[0]['text'] == 'O' and btns[1]['text'] == 'O' and btns[2]['text'] == 'O':
+    if labels[0]['text'] == 'O' and labels[1]['text'] == 'O' and labels[2]['text'] == 'O':
         for i in range(3):
-            btns[i].config(bg='red')
+            labels[i].config(bg='red')
         winner = 1
-    elif btns[3]['text'] == 'O' and btns[4]['text'] == 'O' and btns[5]['text'] == 'O':
+    elif labels[3]['text'] == 'O' and labels[4]['text'] == 'O' and labels[5]['text'] == 'O':
         for i in range(3,6):
-            btns[i].config(bg='red')
+            labels[i].config(bg='red')
         winner = 1
-    elif btns[6]['text'] == 'O' and btns[7]['text'] == 'O' and btns[8]['text'] == 'O':
+    elif labels[6]['text'] == 'O' and labels[7]['text'] == 'O' and labels[8]['text'] == 'O':
         for i in range(6,9):
-            btns[i].config(bg='red')
+            labels[i].config(bg='red')
         winner = 1
-    elif btns[0]['text'] == 'O' and btns[3]['text'] == 'O' and btns[6]['text'] == 'O':
+    elif labels[0]['text'] == 'O' and labels[3]['text'] == 'O' and labels[6]['text'] == 'O':
         for i in range(0,7,3):
-            btns[i].config(bg='red')
+            labels[i].config(bg='red')
         winner = 1
-    elif btns[1]['text'] == 'O' and btns[4]['text'] == 'O' and btns[7]['text'] == 'O':
+    elif labels[1]['text'] == 'O' and labels[4]['text'] == 'O' and labels[7]['text'] == 'O':
         for i in range(1,8,3):
-            btns[i].config(bg='red')
+            labels[i].config(bg='red')
         winner = 1
-    elif btns[2]['text'] == 'O' and btns[5]['text'] == 'O' and btns[8]['text'] == 'O':
+    elif labels[2]['text'] == 'O' and labels[5]['text'] == 'O' and labels[8]['text'] == 'O':
         for i in range(2,9,3):
-            btns[i].config(bg='red')
+            labels[i].config(bg='red')
         winner = 1
-    elif btns[0]['text'] == 'O' and btns[4]['text'] == 'O' and btns[8]['text'] == 'O':
+    elif labels[0]['text'] == 'O' and labels[4]['text'] == 'O' and labels[8]['text'] == 'O':
         for i in range(0,9,4):
-            btns[i].config(bg='red')
+            labels[i].config(bg='red')
         winner = 1
-    elif btns[2]['text'] == 'O' and btns[4]['text'] == 'O' and btns[6]['text'] == 'O':
+    elif labels[2]['text'] == 'O' and labels[4]['text'] == 'O' and labels[6]['text'] == 'O':
         for i in range(2,7,2):
-            btns[i].config(bg='red')
+            labels[i].config(bg='red')
         winner = 1
-    elif btns[0]['text'] == 'X' and btns[1]['text'] == 'X' and btns[2]['text'] == 'X':
+    elif labels[0]['text'] == 'X' and labels[1]['text'] == 'X' and labels[2]['text'] == 'X':
         for i in range(3):
-            btns[i].config(bg='red')
+            labels[i].config(bg='red')
         winner = 2
-    elif btns[3]['text'] == 'X' and btns[4]['text'] == 'X' and btns[5]['text'] == 'X':
+    elif labels[3]['text'] == 'X' and labels[4]['text'] == 'X' and labels[5]['text'] == 'X':
         for i in range(3,6):
-            btns[i].config(bg='red')
+            labels[i].config(bg='red')
         winner = 2
-    elif btns[6]['text'] == 'X' and btns[7]['text'] == 'X' and btns[8]['text'] == 'X':
+    elif labels[6]['text'] == 'X' and labels[7]['text'] == 'X' and labels[8]['text'] == 'X':
         for i in range(6,9):
-            btns[i].config(bg='red')
+            labels[i].config(bg='red')
         winner = 2
-    elif btns[0]['text'] == 'X' and btns[3]['text'] == 'X' and btns[6]['text'] == 'X':
+    elif labels[0]['text'] == 'X' and labels[3]['text'] == 'X' and labels[6]['text'] == 'X':
         for i in range(0,7,3):
-            btns[i].config(bg='red')
+            labels[i].config(bg='red')
         winner = 2
-    elif btns[1]['text'] == 'X' and btns[4]['text'] == 'X' and btns[7]['text'] == 'X':
+    elif labels[1]['text'] == 'X' and labels[4]['text'] == 'X' and labels[7]['text'] == 'X':
         for i in range(1,8,3):
-            btns[i].config(bg='red')
+            labels[i].config(bg='red')
         winner = 2
-    elif btns[2]['text'] == 'X' and btns[5]['text'] == 'X' and btns[8]['text'] == 'X':
+    elif labels[2]['text'] == 'X' and labels[5]['text'] == 'X' and labels[8]['text'] == 'X':
         for i in range(2,9,3):
-            btns[i].config(bg='red')
+            labels[i].config(bg='red')
         winner = 2
-    elif btns[0]['text'] == 'X' and btns[4]['text'] == 'X' and btns[8]['text'] == 'X':
+    elif labels[0]['text'] == 'X' and labels[4]['text'] == 'X' and labels[8]['text'] == 'X':
         for i in range(0,9,4):
-            btns[i].config(bg='red')
+            labels[i].config(bg='red')
         winner = 2
-    elif btns[2]['text'] == 'X' and btns[4]['text'] == 'X' and btns[6]['text'] == 'X':
+    elif labels[2]['text'] == 'X' and labels[4]['text'] == 'X' and labels[6]['text'] == 'X':
         for i in range(2,7,2):
-            btns[i].config(bg='red')
+            labels[i].config(bg='red')
         winner = 2
     
     if winner == 1:
         tkinter.messagebox.showinfo('Tic-Tac-Toe', 'Oの勝ちです。')
-        disable_btns()
+        disable_labels()
     elif winner == 2:
         tkinter.messagebox.showinfo('Tic-Tac-Toe', 'Xの勝ちです。')
-        disable_btns()
+        disable_labels()
 
     if winner == 0 and count == 9:
         tkinter.messagebox.showinfo('Tic-Tac-Toe', '引き分けです。')
-        disable_btns()
+        disable_labels()
 
 root = tkinter.Tk()
 root.title('Tic-Tac-Toe')
 
 def reset():
-    global btns, turn, count, winner
-    btns = []
+    global labels, turn, count, winner
+    labels = []
     turn = True
     count = 0
     winner = 0
     for i in range(9):
-        btn = tkinter.Button(root, text='', font=('Helvetica', 20), height=3, width=6)
-        btn.grid(row=i//3, column=i%3)
-        btn.bind('<ButtonPress>', click_btn)
-        btns.append(btn)
+        label = tkinter.Label(root, text='', font=('Helvetica', 20), height=3, width=6, borderwidth=2, relief='ridge')
+        label.grid(row=i//3, column=i%3)
+        label.bind('<ButtonPress>', click_label)
+        labels.append(label)
 
 my_menu = tkinter.Menu(root)
 root.config(menu=my_menu)
