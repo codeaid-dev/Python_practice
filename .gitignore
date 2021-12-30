@@ -14,3 +14,5 @@ sample.csv
 *.jpg
 *.png
 example
+*.db
+*.db-journal
