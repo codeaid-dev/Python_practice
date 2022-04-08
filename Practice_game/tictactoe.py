@@ -29,74 +29,30 @@ def disable_labels():
         label['state'] = 'disable'
         #label.config(state='disable')
 
+wins = [[0,1,2],
+        [3,4,5],
+        [6,7,8],
+        [0,3,6],
+        [1,4,7],
+        [2,5,8],
+        [0,4,8],
+        [2,4,6]]
 winner = 0 # 0:tie, 1:O, 2:X
 def check_win():
     global winner
-    if labels[0]['text'] == 'O' and labels[1]['text'] == 'O' and labels[2]['text'] == 'O':
-        for i in range(3):
-            labels[i].config(bg='red')
-        winner = 1
-    elif labels[3]['text'] == 'O' and labels[4]['text'] == 'O' and labels[5]['text'] == 'O':
-        for i in range(3,6):
-            labels[i].config(bg='red')
-        winner = 1
-    elif labels[6]['text'] == 'O' and labels[7]['text'] == 'O' and labels[8]['text'] == 'O':
-        for i in range(6,9):
-            labels[i].config(bg='red')
-        winner = 1
-    elif labels[0]['text'] == 'O' and labels[3]['text'] == 'O' and labels[6]['text'] == 'O':
-        for i in range(0,7,3):
-            labels[i].config(bg='red')
-        winner = 1
-    elif labels[1]['text'] == 'O' and labels[4]['text'] == 'O' and labels[7]['text'] == 'O':
-        for i in range(1,8,3):
-            labels[i].config(bg='red')
-        winner = 1
-    elif labels[2]['text'] == 'O' and labels[5]['text'] == 'O' and labels[8]['text'] == 'O':
-        for i in range(2,9,3):
-            labels[i].config(bg='red')
-        winner = 1
-    elif labels[0]['text'] == 'O' and labels[4]['text'] == 'O' and labels[8]['text'] == 'O':
-        for i in range(0,9,4):
-            labels[i].config(bg='red')
-        winner = 1
-    elif labels[2]['text'] == 'O' and labels[4]['text'] == 'O' and labels[6]['text'] == 'O':
-        for i in range(2,7,2):
-            labels[i].config(bg='red')
-        winner = 1
-    elif labels[0]['text'] == 'X' and labels[1]['text'] == 'X' and labels[2]['text'] == 'X':
-        for i in range(3):
-            labels[i].config(bg='red')
-        winner = 2
-    elif labels[3]['text'] == 'X' and labels[4]['text'] == 'X' and labels[5]['text'] == 'X':
-        for i in range(3,6):
-            labels[i].config(bg='red')
-        winner = 2
-    elif labels[6]['text'] == 'X' and labels[7]['text'] == 'X' and labels[8]['text'] == 'X':
-        for i in range(6,9):
-            labels[i].config(bg='red')
-        winner = 2
-    elif labels[0]['text'] == 'X' and labels[3]['text'] == 'X' and labels[6]['text'] == 'X':
-        for i in range(0,7,3):
-            labels[i].config(bg='red')
-        winner = 2
-    elif labels[1]['text'] == 'X' and labels[4]['text'] == 'X' and labels[7]['text'] == 'X':
-        for i in range(1,8,3):
-            labels[i].config(bg='red')
-        winner = 2
-    elif labels[2]['text'] == 'X' and labels[5]['text'] == 'X' and labels[8]['text'] == 'X':
-        for i in range(2,9,3):
-            labels[i].config(bg='red')
-        winner = 2
-    elif labels[0]['text'] == 'X' and labels[4]['text'] == 'X' and labels[8]['text'] == 'X':
-        for i in range(0,9,4):
-            labels[i].config(bg='red')
-        winner = 2
-    elif labels[2]['text'] == 'X' and labels[4]['text'] == 'X' and labels[6]['text'] == 'X':
-        for i in range(2,7,2):
-            labels[i].config(bg='red')
-        winner = 2
-    
+    for i in range(len(wins)):
+        a,b,c = wins[i]
+        if labels[a]['text'] \
+            and labels[a]['text'] == labels[b]['text'] \
+            and labels[a]['text'] == labels[c]['text']:
+            labels[a].config(bg='red')
+            labels[b].config(bg='red')
+            labels[c].config(bg='red')
+            if labels[a]['text'] == 'O':
+                winner = 1
+            else:
+                winner = 2
+
     if winner == 1:
         tkinter.messagebox.showinfo('Tic-Tac-Toe', 'Oの勝ちです。')
         disable_labels()
