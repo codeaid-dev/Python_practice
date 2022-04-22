@@ -3,8 +3,7 @@ import random
 
 omikuji = []
 
-def click_btn():
-    canvas.delete('omikuji')
+def uranai():
     result = random.randint(1,100)
     if 1 <= result <= 2:
         num = 0
@@ -21,19 +20,21 @@ def click_btn():
     else:
         num = 6
 
-    canvas.create_image(150,330,image=omikuji[num],tags='omikuji')
+    kuji['image'] = omikuji[num]
+    kuji.update()
 
 root = tkinter.Tk()
 root.title('おみくじ')
-root.resizable(False, False)
-canvas = tkinter.Canvas(root, width=300, height=660)
-canvas.pack()
-box = tkinter.PhotoImage(file='images/omikuji.png')
-
+root.geometry('300x350')
 for i in range(1,8):
     omikuji.append(tkinter.PhotoImage(file=f'images/omikuji_fuda{i}.png'))
 
-canvas.create_image(150,330,image=box,tags='omikuji')
-button = tkinter.Button(root, text='おみくじを引く', command=click_btn, font=('メイリオ', 36))
-button.pack(side=tkinter.BOTTOM, padx=50, pady=50)
+box = tkinter.PhotoImage(file='images/omikuji.png')
+kuji = tkinter.Label(root, image=box)
+button = tkinter.Button(root,
+            text='おみくじを引く',
+            font=('メイリオ', 12),
+            command=uranai)
+kuji.pack(pady=10)
+button.pack(side=tkinter.BOTTOM, pady=10)
 root.mainloop()
