@@ -8,6 +8,6 @@ def home():
 
 @app.route('/echo/<thing>')
 def echo(thing):
-    return thing
+    return f"Say hello to my little friend: {thing}"
 
 app.run(port=9999, debug=True)
