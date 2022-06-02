@@ -13,6 +13,11 @@ test.csv
 sample.csv
 *.jpg
 *.png
+*.bmp
+*.gif
+*.pdf
+*.tiff
+*.webp
 example
 *.db
 *.db-journal
