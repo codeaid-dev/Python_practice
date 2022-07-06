@@ -18,6 +18,7 @@ sample.csv
 *.pdf
 *.tiff
 *.webp
+*.ico
 example
 *.db
 *.db-journal
