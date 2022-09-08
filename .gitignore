@@ -1,5 +1,6 @@
 .vscode
 .ipynb_checkpoints
+.mypy_cache
 check.py
 test.py
 sample.py
