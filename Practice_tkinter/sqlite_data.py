@@ -10,7 +10,7 @@ def create_db():
     cur = con.cursor()
     cur.execute('''
     CREATE TABLE IF NOT EXISTS users (
-        id INTEGER NOT NULL PRIMARY KEY,
+        id INTEGER PRIMARY KEY,
         email TEXT NOT NULL,
         name TEXT NOT NULL,
         subject TEXT NOT NULL
@@ -22,13 +22,21 @@ def create_db():
 def submit():
     con = sqlite3.connect(db_path)
     cur = con.cursor()
-    cur.execute('INSERT INTO users VALUES (:id, :email, :name, :subject)',
-            {
-                'id': id.get(),
-                'email': email.get(),
-                'name': name.get(),
-                'subject': subject.get()
-            })
+    if id.get() == '':
+        cur.execute('INSERT INTO users (email, name, subject) VALUES (:email, :name, :subject)',
+                {
+                    'email': email.get() or None,
+                    'name': name.get() or None,
+                    'subject': subject.get() or None
+                })
+    else:
+        cur.execute('INSERT INTO users VALUES (:id, :email, :name, :subject)',
+                {
+                    'id': id.get() or None,
+                    'email': email.get() or None,
+                    'name': name.get() or None,
+                    'subject': subject.get() or None
+                })
     con.commit()
     con.close()
 
@@ -39,9 +47,9 @@ def query():
     result = cur.fetchall()
     con.commit()
     con.close()
-    new_dict = {}
     new_list = []
     for id,email,name,subject in result:
+        new_dict = {}
         new_dict['id'] = id
         new_dict['email'] = email
         new_dict['name'] = name
