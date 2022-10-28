@@ -45,7 +45,7 @@ def press(e):
 
 def create_enemy():
     c = f'#{random.randint(1,255):02x}{random.randint(1,255):02x}{random.randint(1,255):02x}'
-    s = random.randint(player.size*0.5,player.size*2)
+    s = random.uniform(player.size*0.5,player.size*2)
     e = Circle(0,random.randint(0,400),s,c)
     e.speed = random.randint(-3,3)
     if e.speed == 0: e.speed = 1
