@@ -12,13 +12,13 @@ class Circle:
         self.id = cvs.create_oval(self.x-3,self.y-3,self.x+3,self.y+3,fill=self.color,width=0)
     def move(self):
         self.x -= self.speed
+        if self.x < 0:
+            self.x = 600
         cvs.coords(self.id,self.x-3,self.y-3,self.x+3,self.y+3)
 
 def main():
     for star in stars:
         star.move()
-        if star.x < 0:
-            star.x = 600
     root.after(10, main)
 
 root = tkinter.Tk()
