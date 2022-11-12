@@ -29,10 +29,20 @@ def press(e):
     #print('判定後：',odai)
 
 def main():
-    global timer
+    global timer,status
+    if status == 1:
+        cvs.create_text(300,200,fill='black',text='＜終了＞',font=('メイリオ',50,'bold'),tags='gameover')
+        return
     cvs.itemconfig('q1',fill=iro[odai[0]],text=moji[odai[1]])
     cvs.itemconfig('q2',text=choice[odai[2]])
     cvs.itemconfig('score',text=f'{score}')
+    timer -= 1
+    if timer % 100 == 0:
+        if timer <= 0:
+            cvs.itemconfig('timer',text=f'{timer//100}',fill='red')
+            status = 1
+        else:
+            cvs.itemconfig('timer',text=f'{timer//100}')
     root.after(10, main)
 
 root = tkinter.Tk()
@@ -42,7 +52,8 @@ root.bind('<ButtonPress>',press)
 cvs = tkinter.Canvas(root, width=600, height=600, bg='gray')
 cvs.pack()
 score=0
-timer=0
+timer=2000
+status=0
 iro = ['RED','GREEN','BLUE','YELLOW']
 moji = ['赤','緑','青','黄']
 choice = ['色','読み']
@@ -61,5 +72,6 @@ for i in range(4):
 cvs.create_text(300,300,fill=iro[odai[0]],text=moji[odai[1]],font=('メイリオ',50),tags='q1')
 cvs.create_text(300,350,fill='black',text=choice[odai[2]],font=('メイリオ',50),tags='q2')
 cvs.create_text(60,60,text=f'{score}',fill='black',font=('Times New Roman',50),tags='score')
+cvs.create_text(540,60,text=f'{timer//100}',fill='black',font=('Times New Roman',50),tags='timer')
 main()
 root.mainloop()
