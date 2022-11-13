@@ -69,8 +69,8 @@ ens.append(Circle(120,300))
 for i in range(4):
     ens[i].draw(iro[i])
 
-cvs.create_text(300,300,fill=iro[odai[0]],text=moji[odai[1]],font=('メイリオ',50),tags='q1')
-cvs.create_text(300,350,fill='black',text=choice[odai[2]],font=('メイリオ',50),tags='q2')
+cvs.create_text(300,300,fill=iro[odai[0]],text=moji[odai[1]],font=('メイリオ',40),tags='q1')
+cvs.create_text(300,350,fill='black',text=choice[odai[2]],font=('メイリオ',40),tags='q2')
 cvs.create_text(60,60,text=f'{score}',fill='black',font=('Times New Roman',50),tags='score')
 cvs.create_text(540,60,text=f'{timer//100}',fill='black',font=('Times New Roman',50),tags='timer')
 main()
