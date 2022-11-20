@@ -59,7 +59,7 @@ def query():
     return new_list
 
 root = tkinter.Tk()
-root.title('JSON読み書き')
+root.title('SQLite読み書き')
 root.geometry('400x400')
 
 def read():
