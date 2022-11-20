@@ -8,7 +8,10 @@ json_path = os.path.dirname(__file__) + '/sample.json'
 def load_json():
     if os.path.exists(json_path):
         with open(json_path, 'rt') as fp:
-            return json.load(fp)
+            try:
+                return json.load(fp)
+            except Exception:
+                return []
     return []
 
 def save_json(data):
@@ -18,7 +21,7 @@ def save_json(data):
             return False
     latest.append(data)
     with open(json_path, 'wt', encoding='utf-8') as fp:
-        json.dump(latest, fp)
+        json.dump(latest, fp, ensure_ascii=False, indent=2)
 
 root = tkinter.Tk()
 root.title('JSON読み書き')
