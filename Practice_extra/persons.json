@@ -1,0 +1,12 @@
+[
+  {
+    "age": 25,
+    "city": "Tokyo",
+    "name": "Yamada"
+  },
+  {
+    "age": 40,
+    "city": "Osaka",
+    "name": "Tanaka"
+  }
+]
