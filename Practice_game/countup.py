@@ -9,7 +9,7 @@ labels = []
 
 root = tkinter.Tk()
 root.title('Count Up')
-root.geometry('540x540')
+#root.geometry('540x540')
 
 def pressed(event):
     global count
@@ -41,6 +41,7 @@ for i in range(25):
     label.bind('<ButtonPress>', pressed)
     labels.append(label)
 
+root.geometry(f'{label.winfo_reqwidth()*5}x{label.winfo_reqheight()*5}')
 start = time.time()
 
 root.mainloop()
