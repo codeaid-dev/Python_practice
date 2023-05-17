@@ -41,7 +41,7 @@ for i in range(25):
     label.bind('<ButtonPress>', pressed)
     labels.append(label)
 
-root.geometry(f'{label.winfo_reqwidth()*5}x{label.winfo_reqheight()*5}')
+#root.geometry(f'{label.winfo_reqwidth()*5}x{label.winfo_reqheight()*5}')
 start = time.time()
 
 root.mainloop()
