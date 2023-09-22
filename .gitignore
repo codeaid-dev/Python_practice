@@ -6,6 +6,7 @@ test.py
 sample.py
 /exercise.ipynb
 *.txt
+!requirements.txt
 __pycache__
 test.json
 sample.json
