@@ -2,13 +2,13 @@
 .ipynb_checkpoints
 .mypy_cache
 check.py
-test.py
+test*.py
 sample.py
 /exercise.ipynb
 *.txt
 !requirements.txt
 __pycache__
-test.json
+test*.json
 sample.json
 *.html
 test.csv
