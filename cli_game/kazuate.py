@@ -6,16 +6,21 @@ for i in range(3):
 
 for i in range(1,6):
     while True:
-        nums = list(map(int, input('入力：').split(',')))
-        if len(nums) != 3:
-            continue
-        for x in nums:
-            if not x in range(small,large+1):
+        try:
+            nums = list(map(int, input('入力：').split(',')))
+            if len(nums) != 3:
+                print('数字は3つ入力してください。')
+                continue
+            for x in nums:
+                if not x in range(small,large+1):
+                    break
+            else:
                 break
-        else:
-            break
-        #if all(x in range(small,large+1) for x in nums): #all関数はiterableの全ての要素がTrueのときTrueを返す(論理積)
-            #break
+            #if all(x in range(small,large+1) for x in nums): #all関数はiterableの全ての要素がTrueのときTrueを返す(論理積)
+                #break
+        except ValueError:
+            print('数字を入力してください。')
+            continue
 
     print(f'{i}回目：')
     end = 0
