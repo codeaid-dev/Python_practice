@@ -24,8 +24,9 @@ def slot():
     print(score)
     return score
 
+print('スロットマシーンを開始します！')
 res = 0
 for i in range(3):
-    input(f'{i+1}回目：')
+    input(f'{i+1}回目(スロットを回す)：')
     res += slot()
 print(f'合計：{res}')
