@@ -11,6 +11,8 @@ for moji in ALPHABET:
 mode = random.randint(1,3)
 if mode == 1:
     question = question[::-1]
+    #q = sorted(question, reverse=True)
+    #question = ''.join(q)
 elif mode == 2:
     temp = ''
     while True:
