@@ -24,7 +24,10 @@ elif mode == 2:
             break'
     question = temp
     '''
-    question = ''.join(random.sample(list(question), len(question)))
+    #question = ''.join(random.sample(list(question), len(question)))
+    q = list(question)
+    random.shuffle(q)
+    question = ''.join(q)
 
 print(question)
 start = time.time()
