@@ -1,7 +1,12 @@
-ipykernel
-matplotlib
-pandas
-scikit-learn
 flask
+uwsgi
+mysql-connector-python
 django
+pandas
+matplotlib
 numpy
+scikit-learn
+pygame
+pillow
+ipykernel
+pyxel
