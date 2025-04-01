@@ -14,16 +14,6 @@ if mode == 1:
     #q = sorted(question, reverse=True)
     #question = ''.join(q)
 elif mode == 2:
-    '''
-    temp = ''
-    while True:
-        a = random.choice(question)
-        if a not in temp:
-            temp += a
-        if len(temp) == 25:
-            break'
-    question = temp
-    '''
     #question = ''.join(random.sample(list(question), len(question)))
     q = list(question)
     random.shuffle(q)
