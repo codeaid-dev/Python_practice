@@ -26,15 +26,35 @@ data = [{
     'hovertext': labels
 }]
 
+# layout = {
+#     'title': 'Githubで最も多くのスターがついているPythonプロジェクト',
+#     'titlefont': {'size': 28},
+#     'xaxis': {
+#         'title': 'リポジトリ',
+#         'titlefont': {'size': 24}},
+#     'yaxis': {
+#         'title': 'スターの数',
+#         'titlefont': {'size': 24}}
+# }
+
+# Pyplot version4以降
 layout = {
-    'title': 'Githubで最も多くのスターがついているPythonプロジェクト',
-    'titlefont': {'size': 28},
+    'title': {
+        'text': 'Githubで最も多くのスターがついているPythonプロジェクト',
+        'font': {'size': 28}
+    },
     'xaxis': {
-        'title': 'リポジトリ',
-        'titlefont': {'size': 24}},
+        'title': {
+            'text': 'リポジトリ',
+            'font': {'size': 24}
+        }
+    },
     'yaxis': {
-        'title': 'スターの数',
-        'titlefont': {'size': 24}}
+        'title': {
+            'text': 'スターの数',
+            'font': {'size': 24}
+        }
+    }
 }
 
 fig = {'data': data, 'layout': layout}
