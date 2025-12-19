@@ -10,3 +10,4 @@ pygame
 pillow
 ipykernel
 pyxel
+tinydb
