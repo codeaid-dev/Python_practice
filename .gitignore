@@ -5,6 +5,7 @@ check.py
 test*.py
 sample.py
 /exercise.ipynb
+sample.ipynb
 *.txt
 !requirements.txt
 __pycache__
