@@ -1,13 +1,15 @@
+numpy
+pandas
+matplotlib
+ipykernel
+pillow
 flask
 uwsgi
 mysql-connector-python
 django
-pandas
-matplotlib
-numpy
 scikit-learn
-pygame
-pillow
-ipykernel
 pyxel
-tinydb
+pygame
+# p5は3.12以降でサポートしてないらしいので、それ以降はコメントアウト
+# 3.11でもPyOpenGL-accelerateでエラーとなる
+#p5
